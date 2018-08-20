@@ -469,6 +469,7 @@
                     </div>
                   </div>
               </section>
+              <a href="{{ url_for('game.get_all_moves') }}" style="float:right;">See all moves</a>
               <div class="moves">
                 <script> var last_block = {{ feed[0].block_id }}; </script>
                 {% for move in feed.limit(10) %}

@@ -121,6 +121,14 @@ def get_new_novice():
     return redirect(url_for('.get_dashboard'))
 
 
+@game.route('/moves', methods=['GET'])
+@login_required
+def get_all_moves():
+    feed = g.user.moves
+    return render_template('moves.html',
+                           feed=feed.order_by(Move.block_id.desc()))
+
+
 @game.route('/session_moves', methods=['POST'])
 @login_required
 def post_move():
